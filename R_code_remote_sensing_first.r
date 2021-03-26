@@ -93,3 +93,56 @@ plot(p224r63_2011$B2_sre, col=clg)
 clnir <- colorRampPalette(c("red","orange","yellow")) (100)
 plot(p224r63_2011$B4_sre, col=clnir)
 
+##DAY 4
+#Visulizing data by RGB data
+library(raster)#richiama il pacchetto appena installato e verifico se ci sono stati problemi di installazione
+
+setwd("C:/lab/") #windows
+p224r63_2011 <- brick("p224r63_2011_masked.grd")
+p224r63_2011
+
+# Landsat bands
+# B1: blue
+# B2: green
+# B3: red
+# B4: NIR
+# B5: SWIR
+# B6: THERMAL
+# B7: SWIR 2
+
+#Natural colors 321
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
+
+# False colors 432
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+
+#mount NIR ontop the G of RGB
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
+
+#324
+plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
+
+#Excercise: mount a 2x2 multiframe 
+par(mfrow=c(2,2))
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
+
+#save pdf
+pdf("primopdf.pdf")
+par(mfrow=c(2,2))
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
+dev.off()
+
+#stretch histogramm
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
+
+
+
+
+
