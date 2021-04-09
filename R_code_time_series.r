@@ -40,10 +40,10 @@ levelplot(TGr)
 levelplot(TGr$lst_2000)#plotta la variabilità dei valori dei pixel delle singole colonne o righe
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)#cambio i colori della palette per evidenziare i trend
-levelplot(TGr, col.regions=cl)#col.regions richiama l'oggetto da plottare
+levelplot(TGr, col.regions=cl)#col.regions è l'argomento per cambiare i colori all'interno di levelplot, richiama l'oggetto palette di colori da plottare
 
 #per cambiare i titoli
-levelplot(TGr,col.regions=cl, names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))#gli attributi sono gli oggetti presenti (i 4 dati raster) e con names.attr nomino gli attributi
+levelplot(TGr,col.regions=cl, names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))#gli attributi sono gli oggetti presenti (i 4 dati raster) e con names.attr si nomina gli attributi (titoli nella mappa)
 
 levelplot(TGr,col.regions=cl,main="LST variation in time", names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))#con main inserisco titolo complessivo
 
