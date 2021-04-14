@@ -23,4 +23,4 @@ cl <- colorRampPalette(c('light blue','green','red','yellow'))(100) # applico co
 plot(fapar, col=cl)# plot del dataset
 
 #resampling
-faparres<- aggregate(fapar, fact=100)
+faparres<- aggregate(fapar, fact=100) #ricampionamento con fattore 100 (100*100 pixel riuniti in 1 pixel)
