@@ -26,3 +26,21 @@ plot(sunc$map)
 
 sunc10 <- unsuperClass(sun, nClasses=10)
 plot(sunc10$map)
+
+
+# Gran Canyon
+# landsat
+
+library(raster)
+library(RStoolbox) 
+setwd("C:/lab")
+gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")#importo il dato in r e richiamo l'oggetto
+plotRGB(gc, r=1, g=2, b=3, stretch="lin")
+plotRGB(gc, r=1, g=2, b=3, stretch="hist")
+
+gcc <- unsuperClass(gc, nClasses=2)#classificazione non supervisionata con 2 classi
+gcc
+plot(gcc$map)#plot della mappa contenuta nell'oggetto gcc
+
+gcc10 <- unsuperClass(gc, nClasses=10)#esercizio di classificazione non sup con 10 classi
+plot(gcc10$map)
