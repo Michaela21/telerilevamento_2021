@@ -13,3 +13,23 @@ plot(p224r63_2011$B1_sre, p224r63_2011$B2_sre, col="red", pch=19, cex=2) #per pl
 plot(p224r63_2011$B2_sre, p224r63_2011$B1_sre, col="red", pch=19, cex=2)#invertire assi
 
 pairs(p224r63_2011)
+
+#aggregate cells:resempling (ricampionamento)
+p224r63_2011res <- aggregate(p224r63_2011, fact=10)#ricampionamento di un fattore 10
+p224r63_2011res
+par(mfrow=c(2,1))
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="lin")
+plotRGB(p224r63_2011res, r=4, g=3, b=2, stretch="lin")
+
+p224r63_2011res_pca<-rasterPCA(p224r63_2011res)#analisi pca
+
+summary(p224r63_2011res_pca$model)#sommrio del modello
+plot(p224r63_2011res_pca$map)#per stampare le componenti PCA
+
+p224r63_2011res_pca#visualizza le varie informazioni contenute nell'output generato (mappa, modello...)
+
+plotRGB(p224r63_2011res_pca$map,r=1, g=2, b=3, stretch="lin")#visualizzazione in RGB con le prime 3 componenti generate 
+plotRGB(p224r63_2011res_pca$map$PC1,p224r63_2011res_pca$map$PC2)???????
+
+#per avere informzioni aggiuntive del dato
+str(p224r63_2011res_pca)
