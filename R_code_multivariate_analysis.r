@@ -29,7 +29,7 @@ plot(p224r63_2011res_pca$map)#per stampare le componenti PCA
 p224r63_2011res_pca#visualizza le varie informazioni contenute nell'output generato (mappa, modello...)
 
 plotRGB(p224r63_2011res_pca$map,r=1, g=2, b=3, stretch="lin")#visualizzazione in RGB con le prime 3 componenti generate 
-plotRGB(p224r63_2011res_pca$map$PC1,p224r63_2011res_pca$map$PC2)???????
+plot(p224r63_2011res_pca$map$PC1,p224r63_2011res_pca$map$PC2)#plottore i valori di una banda PCA rispetto ad un'altra banda PCA
 
-#per avere informzioni aggiuntive del dato
+#per avere informzioni aggiuntive del dato, ancge sulla struttura informatica
 str(p224r63_2011res_pca)
