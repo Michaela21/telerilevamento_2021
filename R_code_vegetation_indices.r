@@ -56,13 +56,14 @@ ndifdiv <- ndvi1-ndvi2
 cld <- colorRampPalette(c('blue','white','red'))(100)
 plot(ndifdiv, col=cld)
 
-#worldwide NDVINON FUNZIONA DA RIVEDERE 1:09
+#worldwide NDVI
 #library(raster)
 #library(rasterdiv)
 #library(rasterVis)
-data(copNDVI)
+#data(copNDVI), non usato a lezione ma presente nel codice su virtuale
 plot(copNDVI)
-copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) #per togliere l'acqua usare cbind
-levelplot(copNDVI)
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) #per togliere l'acqua usare cbind (serve per cambiare dei codici, valori DN: i pixel con valore 253,254,255 possono essere trasformati in NA, non disponibile). Con i : si inca il range
+levelplot(copNDVI)#per vedere profili del valore medio di righe e colonne
 
 
+ e ,
