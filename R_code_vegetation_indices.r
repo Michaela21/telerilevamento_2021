@@ -1,8 +1,10 @@
 #R_code_vegetation_indices.r
 library(raster)#si può usare anche require(raster)
 library(RStoolbox)#per usare la funzione spectraIndices al posto di fare l'oporazione algebrica
+#install.packages("rasterdiv")#for the worldwide ndvi
+library(rasterdiv)
+library(rasterVis)
 
-setwd("C:/lab/")
 
 defor1<-brick("defor1.jpg")
 defor2<-brick("defor2.jpg")
@@ -53,5 +55,14 @@ plot(vi2, col=cl)
 ndifdiv <- ndvi1-ndvi2
 cld <- colorRampPalette(c('blue','white','red'))(100)
 plot(ndifdiv, col=cld)
+
+#worldwide NDVINON FUNZIONA DA RIVEDERE 1:09
+#library(raster)
+#library(rasterdiv)
+#library(rasterVis)
+data(copNDVI)
+plot(copNDVI)
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) #per togliere l'acqua usare cbind
+levelplot(copNDVI)
 
 
